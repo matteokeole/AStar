@@ -1,0 +1,81 @@
+:root {
+	--font-size: 16px;
+	--log-color: #ccc;
+	--log-note-color: #c6ae71;
+	--log-info-color: #60aff0;
+	--log-event-color: #97c277;
+	--log-error-color: #b6424b;
+	--number-color: #ffb74d;
+	--number-color-dark: #804c00;
+}
+
+/* Base log */
+.log {
+	display: block;
+	color: var(--log-color);
+	font-family: Consolas, monospace;
+	font-size: var(--font-size);
+}
+.log::selection {
+	background-color: var(--log-color);
+	color: var(--background-color);
+}
+
+/* Rich log */
+.log.info, .log.event, .log.error {
+	margin-top: calc(var(--font-size) * 1.25);
+	padding: var(--font-size);
+}
+.log.info::selection, .log.event::selection, .log.error::selection {background-color: var(--background-color)}
+
+/* Number display */
+.number {
+	color: var(--number-color);
+	font-style: normal;
+}
+.number::selection {
+	background-color: var(--log-color);
+	color: var(--number-color-dark);
+}
+.log.note .number::selection {background-color: var(--log-note-color) !important}
+
+/* Note */
+.log.note {
+	color: var(--log-note-color);
+	font-style: italic;
+}
+.log.note::selection {background-color: var(--log-note-color)}
+
+/* Info message */
+.log.info {
+	background-color: var(--log-info-color);
+	color: #000000aa;
+}
+.log.info::before {content: "[INFO] "}
+.log.info::selection {color: var(--log-info-color)}
+
+/* Event message */
+.log.event {
+	background-color: var(--log-event-color);
+	color: #000000aa;
+}
+.log.event::before {content: "[EVENT] "}
+.log.event::selection {color: var(--log-event-color)}
+
+/* Error message */
+.log.error {
+	background-color: var(--log-error-color);
+	color: #ffffffaa;
+}
+.log.error::before {content: "[ERROR] "}
+.log.error::selection {color: var(--log-error-color)}
+
+/* Inline log top margin */
+.log.info + .log,
+.log.event + .log,
+.log.error + .log {
+	margin-top: calc(var(--font-size) * 1.25);
+}
+
+/* No top margin for the first log */
+.log:first-child {margin-top: 0}

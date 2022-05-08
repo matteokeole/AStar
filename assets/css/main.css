@@ -1,0 +1,35 @@
+@import url(log.css);
+
+:root {
+	--background-color: #1a1d21;
+	--canvas-color: #15171a;
+}
+
+body {
+	display: flex;
+	height: 100vh;
+	margin: 0;
+	background-color: var(--background-color);
+}
+
+.container {
+	display: flex;
+	width: 50%;
+}
+.container.canvas {
+	justify-content: center;
+	align-items: center;
+}
+
+#debug {
+	flex-grow: 1;
+	padding: var(--font-size);
+	overflow-y: scroll;
+}
+
+#canvas {
+	background-color: var(--canvas-color);
+	image-rendering: pixelated;
+	-webkit-transform: scale(20);
+	transform: scale(20);
+}
