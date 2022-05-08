@@ -2,6 +2,7 @@
 
 :root {
 	--background-color: #1a1d21;
+	--border-color: #555;
 	--canvas-color: #15171a;
 }
 
@@ -30,6 +31,14 @@ body {
 #canvas {
 	background-color: var(--canvas-color);
 	image-rendering: pixelated;
-	-webkit-transform: scale(20);
-	transform: scale(20);
+}
+
+@media screen and (max-width: 1000px) {
+	body {flex-direction: column}
+
+	.container {
+		width: auto;
+		height: 50%;
+	}
+	.container.debug {border-bottom: 1px solid var(--border-color)}
 }
