@@ -7,16 +7,16 @@ const
 	cockroach_color = "#663d00";
 
 // Set canvas size
-canvas.width = 20;
-canvas.height = 20;
+canvas.width = 400;
+canvas.height = 400;
 ctx.fillStyle = cockroach_color;
 
 // Place cockroaches
 for (let i = 0; i < 2; i++) {
 	const cockroach = new Cockroach(ctx, i)
 		.spawn(
-			Math.floor(canvas.width * Math.random()),
-			Math.floor(canvas.height * Math.random()),
+			Math.floor(20 * Math.random()) * 20,
+			Math.floor(20 * Math.random()) * 20,
 		)
 		.wander();
 }

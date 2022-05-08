@@ -11,8 +11,8 @@ export const Cockroach = function(ctx, id) {
 	this.id = id;
 
 	// Size
-	this.w = 1;
-	this.h = 1;
+	this.w = 20;
+	this.h = 20;
 
 	// Current position
 	this.x = 0;
@@ -28,7 +28,10 @@ export const Cockroach = function(ctx, id) {
 	this.canvas = this.ctx.canvas;
 
 	// Border list
-	this.border = [this.canvas.width, this.canvas.height];
+	this.border = [
+		this.canvas.width / 20,
+		this.canvas.height / 20,
+	];
 
 	/**
 	 * Draw a cockroach at the given coordinates.
@@ -56,8 +59,8 @@ export const Cockroach = function(ctx, id) {
 			log(`Cockroach #${this.id}: Decision made!`, "event");
 
 			this.goto(
-				Math.floor(this.border[0] * Math.random()),
-				Math.floor(this.border[1] * Math.random()),
+				Math.floor(this.border[0] * Math.random()) * this.border[0],
+				Math.floor(this.border[1] * Math.random()) * this.border[1],
 				() => timeout = setTimeout(decision, delay),
 			);
 		};
@@ -89,7 +92,7 @@ export const Cockroach = function(ctx, id) {
 							directions[Math.floor(2 * Math.random())];
 
 				// Update the coordinate towards this direction
-				this[direction] > destination[direction] ? this[direction]-- : this[direction]++;
+				this[direction] > destination[direction] ? this[direction] -= 20 : this[direction] += 20;
 
 				// Redraw the cockroach
 				this.draw();

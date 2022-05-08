@@ -9,6 +9,8 @@ const
  */
 export const log = (message, type = "") => {
 	if (log_enabled) {
+		const debug_end = (debug.scrollTop + innerHeight + 200) > debug.scrollHeight;
+
 		// Wrap the message into a <span>
 		message = `<span class="log ${type}">${message}</span>`;
 
@@ -16,7 +18,6 @@ export const log = (message, type = "") => {
 		(!type || type === "note") && (message = message.replace(/(\d+)/g, `<span class='number'>$1</span>`));
 
 		// Send the message and update the scroll Y position
-		const debug_end = (debug.scrollTop + innerHeight + 200) > debug.scrollHeight;
 		debug.innerHTML += message;
 		debug_end && (debug.scrollTop = debug.scrollHeight);
 	}
