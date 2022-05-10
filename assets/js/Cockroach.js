@@ -4,11 +4,12 @@ const directions = ["x", "y"];
 
 /**
  * Create a new cockroach.
- * @param	{object}	ctx	The canvas context of the parent map
+ * @param	{object}	ctx		Canvas context of the parent map
+ * @param	{number}	[id]	Cockroach unique ID
  */
 export const Cockroach = function(ctx, id) {
 	// ID
-	this.id = id;
+	this.id = id ?? 0;
 
 	// Size
 	this.w = 20;

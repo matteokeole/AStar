@@ -6,7 +6,7 @@ const
 	ctx = canvas.getContext("2d"),
 	cockroach_color = "#663d00";
 
-// Set canvas size
+// Set canvas attributes
 canvas.width = 400;
 canvas.height = 400;
 ctx.fillStyle = cockroach_color;
