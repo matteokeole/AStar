@@ -1,3 +1,4 @@
+@import url(helper.css);
 @import url(log.css);
 
 :root {
@@ -29,7 +30,8 @@ body {
 }
 
 #canvas {
-	background-color: var(--canvas-color);
+	background-size: 100%;
+	cursor: none;
 	image-rendering: pixelated;
 }
 

@@ -1,0 +1,12 @@
+{
+	"map": [
+		{
+			"origin": [8, 6],
+			"size": [5, 2]
+		}, {
+			"origin": [11, 8],
+			"size": [2, 4]
+		}
+	],
+	"background": "1.png"
+}

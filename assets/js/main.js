@@ -1,24 +1,21 @@
 import {Cockroach} from "./Cockroach.js";
+import {load_map} from "./loader.js";
+import {update_helper} from "./helper.js";
 import {log} from "./log.js";
 
-const
+export const
 	canvas = document.querySelector("#canvas"),
 	ctx = canvas.getContext("2d"),
-	cockroach_color = "#663d00";
+	scale = 20;
 
-// Set canvas attributes
-canvas.width = 400;
-canvas.height = 400;
-ctx.fillStyle = cockroach_color;
+// Prepare canvas
+canvas.width = 20 * scale;
+canvas.height = 20 * scale;
+canvas.addEventListener("mousemove", update_helper);
 
-// Place cockroaches
-for (let i = 0; i < 2; i++) {
-	const cockroach = new Cockroach(ctx, i)
-		.spawn(
-			Math.floor(20 * Math.random()) * 20,
-			Math.floor(20 * Math.random()) * 20,
-		)
-		.wander();
-}
-
-log("Listening for events...", "note");
+load_map("maps/1.json", map => {
+	// Place a cockroach
+	const cockroach = new Cockroach(map, ctx, 0)
+		.spawn(6, 15)
+		.pathfind(16, 3);
+});
