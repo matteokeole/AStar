@@ -1,6 +1,6 @@
 const
 	debug = document.querySelector("#debug"),
-	logger = true,
+	logger = false,
 	auto_scroll = false;
 
 /**

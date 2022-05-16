@@ -11,8 +11,8 @@ export const update_helper = e => {
 
 	helper.style.cssText = `
 		display: flex;
-		left: ${Math.floor(e.clientX / scale) * scale + 1}px;
-		top: ${Math.floor(e.clientY / scale) * scale + 4}px;
+		left: ${Math.floor(e.clientX / scale) * scale}px;
+		top: ${Math.floor(e.clientY / scale) * scale}px;
 	`;
 };
 

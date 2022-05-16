@@ -208,26 +208,11 @@ export const Cockroach = function(map, ctx, id = 0) {
 		let o = [x, y], // origin
 			d = [this.x, this.y]; // destination
 
-		let diff = [Math.abs(d[0] - o[0]), Math.abs(d[1] - o[1])];
-
-		let qx = diff[0], qy = diff[1];
-
-		for (let i = 0; i < diff[0] + diff[1]; i++) {
-			let rnd;
-			if (qx === 0 && qy !== 0) rnd = 1;
-			else if (qy === 0 && qx !== 0) rnd = 0;
-			else rnd = Math.floor(Math.random() * 2);
-
-			rnd === 0 ? qx-- : qy--;
-			if (rnd === 0) {
-				qx--;
-				o[0] > d[0] ? o[0]-- : o[0]++;
-			} else {
-				qy--;
-				o[1] > d[1] ? o[1]-- : o[1]++;
-			}
-			this.ctx.fillRect(o[0] * scale, o[1] * scale, scale, scale);
-		}
+		this.ctx.beginPath();
+		this.ctx.moveTo((o[0] + .5) * scale, (o[1] + .5) * scale);
+		this.ctx.lineTo((d[0] + .5) * scale, (d[1] + .5) * scale);
+		this.ctx.strokeStyle = "#ff0";
+		this.ctx.stroke();
 	};
 
 	return this;
