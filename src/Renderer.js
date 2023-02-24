@@ -23,11 +23,11 @@ export default class Renderer {
 
 		canvas.style.backgroundImage = `url(assets/images/${map.backgroundImage})`;
 
-		for (const slot of map.slots) {
-			ctx.fillStyle = slot.isObstacle ? "#b6424b" : "transparent";
+		for (const node of map.nodes) {
+			ctx.fillStyle = node.isObstructed ? "#b6424b" : "transparent";
 			ctx.fillRect(
-				slot.position.x * S,
-				slot.position.y * S,
+				node.position.x * S,
+				node.position.y * S,
 				S,
 				S,
 			);

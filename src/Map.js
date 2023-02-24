@@ -1,13 +1,13 @@
-import Slot from "./Slot.js";
+import Node from "./Node.js";
 import Vector2 from "./Vector2.js";
 
 export default class Map {
-	constructor({backgroundImage, slots}) {
+	constructor({backgroundImage, nodes}) {
 		/** @type {String} */
 		this.backgroundImage = backgroundImage;
 
-		/** @type {Slot[]} */
-		this.slots = slots;
+		/** @type {Node[]} */
+		this.nodes = nodes;
 	}
 
 	/**
@@ -21,17 +21,17 @@ export default class Map {
 
 		return new Map({
 			backgroundImage: backgroundImage,
-			slots: Map.createSlots(obstacles),
+			nodes: Map.createSlots(obstacles),
 		});
 	}
 
 	/**
 	 * @param {Object[]} obstacles
-	 * @returns {Slot[]}
+	 * @returns {Node[]}
 	 */
 	static createSlots(obstacles) {
-		/** @type {Slots[]} */
-		const slots = [];
+		/** @type {Node[]} */
+		const nodes = [];
 		let position, x, y;
 
 		/**
@@ -56,7 +56,7 @@ export default class Map {
 			for (y = 0; y < 20; y++) {
 				position = new Vector2(x, y);
 
-				slots.push(new Slot({
+				nodes.push(new Node({
 					position,
 					isObstacle: isObstacle(position),
 				}));
@@ -65,6 +65,6 @@ export default class Map {
 			y = 0;
 		}
 
-		return slots;
+		return nodes;
 	}
 }

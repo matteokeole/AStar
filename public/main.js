@@ -1,4 +1,5 @@
 import Map from "src/map";
+import Node from "src/node";
 import Renderer from "src/renderer";
 
 const renderer = new Renderer(canvas, {
