@@ -1,5 +1,6 @@
 {
-	"map": [
+	"background_image": "map0.png",
+	"obstacles": [
 		{
 			"origin": [0, 5],
 			"size": [1, 2]
@@ -37,6 +38,5 @@
 			"origin": [14, 11],
 			"size": [1, 1]
 		}
-	],
-	"background": "0.png"
+	]
 }
