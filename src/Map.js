@@ -58,7 +58,7 @@ export default class Map {
 
 				nodes.push(new Node({
 					position,
-					isObstacle: isObstacle(position),
+					isObstructed: isObstacle(position),
 				}));
 			}
 

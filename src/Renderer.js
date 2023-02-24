@@ -13,19 +13,34 @@ export default class Renderer {
 
 		/** @type {CanvasRenderingContext2D} */
 		this.ctx = canvas.getContext("2d");
+
+		this.ctx.strokeStyle = "#0005";
 	}
 
 	/**
 	 * @param {Map} map
 	 */
-	render(map) {
-		const {canvas, ctx, scaleMultiplier: S} = this;
+	setMap(map) {
+		this.canvas.style.backgroundImage = `url(assets/images/${map.backgroundImage})`;
+	}
 
-		canvas.style.backgroundImage = `url(assets/images/${map.backgroundImage})`;
+	/**
+	 * @param {Node[]} nodes
+	 */
+	render(nodes) {
+		const {ctx, scaleMultiplier: S} = this;
 
-		for (const node of map.nodes) {
-			ctx.fillStyle = node.isObstructed ? "#b6424b" : "transparent";
-			ctx.fillRect(
+		for (const node of nodes) {
+			ctx.fillStyle = node.isPath ? "#97c277" : node.isObstructed ? "#b6424b" : "#0000";
+
+			if (ctx.fillStyle !== "#0000") ctx.fillRect(
+				node.position.x * S,
+				node.position.y * S,
+				S,
+				S,
+			);
+
+			ctx.strokeRect(
 				node.position.x * S,
 				node.position.y * S,
 				S,
