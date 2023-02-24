@@ -1,5 +1,5 @@
 {
-	"background_image": "1.png",
+	"background_image": "map1.png",
 	"obstacles": [
 		{
 			"origin": [8, 6],

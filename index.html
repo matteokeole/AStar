@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<link rel="icon" href="data:;base64,=">
+		<link rel="icon" href="data:">
 		<link rel="stylesheet" href="assets/css/main.css">
-		<script type="module" src="assets/js/main.js"></script>
+		<script type="importmap">
+			{
+				"imports": {
+					"src/cockroach": "./src/Cockroach.js",
+					"src/map": "./src/Map.js",
+					"src/log": "./src/log.js",
+					"src/renderer": "./src/Renderer.js",
+					"src/vector": "./src/Vector2.js"
+				}
+			}
+		</script>
+		<script type="module" src="public/main.js"></script>
 	</head>
 
 	<body>
