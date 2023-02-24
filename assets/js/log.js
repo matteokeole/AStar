@@ -1,6 +1,6 @@
 const
 	debug = document.querySelector("#debug"),
-	logger = false,
+	logger = true,
 	auto_scroll = false;
 
 /**
@@ -8,7 +8,7 @@ const
  * @param	{string}	message		Log content
  * @param	{string}	[type=""]	Log type
  */
-export const log = (message, type = "") => {
+export default function log(message, type = "") {
 	if (logger) {
 		if (auto_scroll) {const debug_end = (debug.scrollTop + innerHeight + 200) > debug.scrollHeight}
 
@@ -23,4 +23,4 @@ export const log = (message, type = "") => {
 		// update scroll Y position
 		if (auto_scroll && debug_end) debug.scrollTop = debug.scrollHeight;
 	}
-};
+}

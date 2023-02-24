@@ -1,4 +1,3 @@
-@import url(helper.css);
 @import url(log.css);
 
 :root {
@@ -31,16 +30,25 @@ body {
 
 #canvas {
 	background-size: 100%;
-	cursor: none;
 	image-rendering: pixelated;
 }
 
 @media screen and (max-width: 1000px) {
-	body {flex-direction: column}
+	body {
+		flex-direction: column;
+	}
 
 	.container {
 		width: auto;
 		height: 50%;
 	}
-	.container.debug {border-bottom: 1px solid var(--border-color)}
+	.container.debug {
+		border-bottom: 1px solid var(--border-color);
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	.container.debug {
+		border-left: 1px solid var(--border-color);
+	}
 }

@@ -1,16 +1,14 @@
 import {scale} from "./main.js";
 import {log} from "./log.js";
 
+/** @type {Number} */
+let id = 0;
+
 const directions = ["x", "y"];
 
-/**
- * Create a new cockroach.
- * @param	{object}	ctx		Canvas context of the parent map
- * @param	{number}	[id]	Cockroach unique ID
- */
-export const Cockroach = function(map, ctx, id = 0) {
-	// ID
-	this.id = id;
+export default function Cockroach(map, ctx) {
+	/** @type {Number} */
+	this.id = ++id;
 
 	// Size
 	this.w = 1;
@@ -216,4 +214,4 @@ export const Cockroach = function(map, ctx, id = 0) {
 	};
 
 	return this;
-};
+}

@@ -26,7 +26,9 @@
 	margin-top: calc(var(--font-size) * 1.25);
 	padding: var(--font-size);
 }
-.log.info::selection, .log.event::selection, .log.error::selection {background-color: var(--background-color)}
+.log.info::selection, .log.event::selection, .log.error::selection {
+	background-color: var(--background-color);
+}
 
 /* Number display */
 .number {
@@ -37,45 +39,61 @@
 	background-color: var(--log-color);
 	color: var(--number-color-dark);
 }
-.log.note .number::selection {background-color: var(--log-note-color) !important}
+.log.note .number::selection {
+	background-color: var(--log-note-color) !important;
+}
 
 /* Note */
 .log.note {
 	color: var(--log-note-color);
 	font-style: italic;
 }
-.log.note::selection {background-color: var(--log-note-color)}
+.log.note::selection {
+	background-color: var(--log-note-color);
+}
 
 /* Info message */
 .log.info {
 	background-color: var(--log-info-color);
 	color: #000000aa;
 }
-.log.info::before {content: "[INFO] "}
-.log.info::selection {color: var(--log-info-color)}
+.log.info::before {
+	content: "[INFO] ";
+}
+.log.info::selection {
+	color: var(--log-info-color);
+}
 
 /* Event message */
 .log.event {
 	background-color: var(--log-event-color);
 	color: #000000aa;
 }
-.log.event::before {content: "[EVENT] "}
-.log.event::selection {color: var(--log-event-color)}
+.log.event::before {
+	content: "[EVENT] ";
+}
+.log.event::selection {
+	color: var(--log-event-color);
+}
 
 /* Error message */
 .log.error {
 	background-color: var(--log-error-color);
 	color: #ffffffaa;
 }
-.log.error::before {content: "[ERROR] "}
-.log.error::selection {color: var(--log-error-color)}
+.log.error::before {
+	content: "[ERROR] ";
+}
+.log.error::selection {
+	color: var(--log-error-color);
+}
 
 /* Inline log top margin */
-.log.info + .log,
-.log.event + .log,
-.log.error + .log {
+.log.info + .log, .log.event + .log, .log.error + .log {
 	margin-top: calc(var(--font-size) * 1.25);
 }
 
 /* No top margin for the first log */
-.log:first-child {margin-top: 0}
+.log:first-child {
+	margin-top: 0;
+}
