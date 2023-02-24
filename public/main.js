@@ -13,17 +13,14 @@ const map = await Map.load("assets/maps/map0.json");
 renderer.setMap(map);
 renderer.render(map.nodes);
 
-// Pathfinding tests
-{
-	const path = pathfind(
-		map.nodes,
-		map.nodes.find(node => node.position.x == node.position.y == 0),
-		new Vector2(19, 19),
-	);
+const path = pathfind(
+	map.nodes,
+	map.nodes.find(node => node.position.x == node.position.y == 0),
+	new Vector2(19, 19),
+);
 
-	renderer.render(path.map(node => {
-		node.isPath = true;
+renderer.render(path.map(node => {
+	node.isPath = true;
 
-		return node;
-	}));
-}
+	return node;
+}));

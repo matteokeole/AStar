@@ -35,11 +35,19 @@ export default class Node {
 		// Right center
 		if (this.position.x < 19) neighbors.push(nodes[nodeIndex + 20]);
 
-		// Top center
-		if (this.position.y > 0) neighbors.push(nodes[nodeIndex - 1]);
+		// Top neighbors
+		if (this.position.y > 0) {
+			neighbors.push(nodes[nodeIndex - 21]); // Top left
+			neighbors.push(nodes[nodeIndex - 1]); // Top center
+			neighbors.push(nodes[nodeIndex + 19]); // Top right
+		}
 
-		// Bottom center
-		if (this.position.y < 19) neighbors.push(nodes[nodeIndex + 1]);
+		// Bottom neighbors
+		if (this.position.y < 19) {
+			neighbors.push(nodes[nodeIndex - 19]); // Bottom left
+			neighbors.push(nodes[nodeIndex + 1]); // Bottom center
+			neighbors.push(nodes[nodeIndex + 21]); // Bottom right
+		}
 
 		return neighbors.filter(neighbor => neighbor !== undefined && !neighbor.isObstructed);
 	}

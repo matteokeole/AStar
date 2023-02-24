@@ -18,11 +18,15 @@ export default function pathfind(nodes, start, goal) {
 	start.gCost = 0;
 	start.fCost = start.hCost;
 
+	const then = performance.now();
+
 	while (open.length != 0) {
 		u = open.sort((a, b) => a.fCost < b.fCost)[0];
 
 		if (u.position.x === goal.x && u.position.y === goal.y) {
-			log("Pathfinding done!", "event");
+			const time = (performance.now() - then);
+
+			log(`Pathfinding done in ${time.toFixed(1)}ms`, "event");
 
 			const finalPath = [u];
 
